@@ -17,7 +17,7 @@ Este repositorio contiene la implementación de un sistema de acceso concurrente
 
 ## Instrucciones de Ejecución
 
-### 1. Configuración del entorno
+### Configuración del entorno
 Asegúrese de establecer el dominio de red correspondiente al robot asignado (72) y deshabilitar la restricción de localhost antes de ejecutar los nodos:
 ```bash
 export ROS_DOMAIN_ID=72
