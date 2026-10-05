@@ -22,3 +22,12 @@ Asegúrese de establecer el dominio de red correspondiente al robot asignado (72
 ```bash
 export ROS_DOMAIN_ID=72
 export ROS_LOCALHOST_ONLY=0
+
+### 2. Ejecutar el Servidor (Broker)
+Para iniciar el gestor de la cola y la exclusión mutua, ejecute:
+ros2 run arm_broker broker --ros-args -p politica:=prioridad
+*(Puede cambiar "prioridad" por "fifo" para alternar el filtro de admisión).*
+
+## 3. Ejecutar los Clientes
+En terminales separadas, lance los clientes indicando su prioridad (1 a 4):
+ros2 run arm_broker cliente --ros-args -p prioridad:=1
