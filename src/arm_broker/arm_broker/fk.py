@@ -33,15 +33,16 @@ JOINT_LIMITS = [
 ALCANCE_MIN_MM = 80.0
 ALCANCE_MAX_MM = 480.0
 
-
 def _t(alpha, a, d, theta):
     ca, sa = math.cos(alpha), math.sin(alpha)
     ct, st = math.cos(theta), math.sin(theta)
+    
+    # Matriz corregida a convención Denavit-Hartenberg Estándar
     return [
-        [ct,      -st,      0.0,   a],
-        [st * ca,  ct * ca, -sa,  -sa * d],
-        [st * sa,  ct * sa,  ca,   ca * d],
-        [0.0,      0.0,      0.0,  1.0],
+        [ct, -st * ca,  st * sa, a * ct],
+        [st,  ct * ca, -ct * sa, a * st],
+        [0.0,      sa,       ca,      d],
+        [0.0,     0.0,      0.0,    1.0],
     ]
 
 
